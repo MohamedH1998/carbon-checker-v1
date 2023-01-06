@@ -14,7 +14,6 @@ import { calculateAnnualEmissions, calculateAnnualEnergy, calculateEmissionsPerV
 
       const pageSize = data.lighthouseResult.audits['total-byte-weight'].numericValue
       const energyPerVisit = calculateEnergyConsumption(pageSize);
-      const emissionsPerVisit = calculateEmissionsPerVisit(energyPerVisit);
       const annualEmissions = calculateAnnualEmissions(energyPerVisit);
       const annualEnergy = calculateAnnualEnergy(energyPerVisit)
       const cupsOfCoffee = cupsOfCoffeeEquivalence(annualEnergy.result)
