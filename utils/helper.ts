@@ -16,6 +16,7 @@ export const validUrl = (url: string) => {
 
 
 export async function getCalc(url: string) {
+    try{
     const testing = await fetch('/api/test', {
     method: 'POST',
     headers: {
@@ -25,6 +26,9 @@ export async function getCalc(url: string) {
     });
     const test = await testing.json();
     return test
+    }catch(e) {
+        return undefined;
+  }
   }
 
 

@@ -1,48 +1,53 @@
-import React, { useEffect, useState } from 'react';
-import { IoMdRocket } from 'react-icons/io';
+import React, { MutableRefObject, useEffect, useState } from 'react';
 import { CgCoffee } from 'react-icons/cg';
-import URLSearch from '../../components/url-search';
-import RadialProgresBar from '../../components/radial-progress-bar';
+import { IoMdRocket } from 'react-icons/io';
 import Card from '../../components/card';
+import Loader from '../../components/loader';
+import Section from '../../components/section';
+import URLSearch from '../../components/url-search';
+import { getCalc } from '../../utils/helper';
 
-async function getCalc(url: string) {
-  const testing = await fetch('http://localhost:3000/api/test', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(url),
-  });
-  const test = await testing.json();
-
-  return test;
+interface Props {
+  calculateRef: MutableRefObject<HTMLDivElement | null>;
 }
 
-const Calculate = () => {
+const Calculate = ({ calculateRef }: Props) => {
   const [url, setUrl] = useState<string>('');
-  const [data, setData] = useState<any>(undefined);
-  const [loadingData, setLoadingData] = useState<boolean | undefined>(
-    undefined
-  );
+  const [data, setData] = useState<Data | undefined>(undefined);
+  const [loadingData, setLoadingData] = useState(false);
+
+  const fetchData = async () => {
+    try {
+      setLoadingData(true);
+      const { data } = await getCalc(url);
+      setData(data);
+      setLoadingData(false);
+      setUrl('');
+    } catch (e) {
+      console.log('oops', e.message);
+      setData(undefined);
+      setLoadingData(false);
+      setUrl('');
+    }
+  };
+
   useEffect(() => {
     if (!url) {
       return;
     }
-    const fetchData = async () => {
-      setLoadingData(true);
-      const data = await getCalc(url);
-      setData(data);
-      setLoadingData(false);
-    };
     fetchData();
   }, [url]);
 
   const renderData = () => {
-    if (loadingData === undefined) {
-      <div>Undefined</div>;
+    if (!data && loadingData) {
+      return (
+        <div className="w-full my-10 flex flex-col items-center justify-center">
+          <Loader loading={loadingData} />
+        </div>
+      );
     }
-    if (loadingData) {
-      <div>loading</div>;
+    if (!data) {
+      return;
     }
     const cardInfo = [
       {
@@ -52,7 +57,7 @@ const Calculate = () => {
           </i>
         ),
         description: 'Every year, your website emits',
-        stat: `${data.annualEmissions.result} ${data.annualEmissions.units}`,
+        stat: `${data?.annualEmissions?.result} ${data?.annualEmissions?.units}`,
       },
       {
         icon: (
@@ -66,7 +71,7 @@ const Calculate = () => {
     ];
 
     return (
-      <div className="pt-10">
+      <div className="space-y-3 py-5">
         {cardInfo.map((card, i) => (
           <Card
             icon={card.icon}
@@ -75,49 +80,60 @@ const Calculate = () => {
             key={i}
           />
         ))}
-        <RadialProgresBar />
-        <p className="text-center -mt-4 text-lg">Cleaner than sites tested</p>
       </div>
     );
   };
 
+  const defaultInfo = !loadingData && !data;
+
+  const skeletonCardInfo = [
+    {
+      icon: (
+        <i className="rounded-md p-4 text-sandpiper bg-private-black text-4xl ">
+          <IoMdRocket />
+        </i>
+      ),
+      description: 'Every year, your website emits',
+      stat: `--- Kg CO2e`,
+      skeleton: true,
+    },
+    {
+      icon: (
+        <i className="rounded-md p-4 text-kittens-eye bg-aeronautic text-4xl ">
+          <CgCoffee />
+        </i>
+      ),
+      description: 'Equivalent to',
+      stat: `--- cups of coffee`,
+      skeleton: true,
+    },
+  ];
+
   return (
-    <section className="w-full py-20 text-powder-white">
-      <small className="text-dover-grey">Calculate</small>
-      <h4 className="text-3xl">Estimate your carbon footprint</h4>
-      <URLSearch setUrl={setUrl} />
-      {renderData()}
-      {/* <div className="pt-10">
-        {cardInfo.map((card, i) => (
-            <Card icon={card.icon} description={card.description} stat={card.stat} key={i} />
-        ))}
-         <RadialProgresBar/>
-        <p className="text-center -mt-4 text-lg">Cleaner than sites tested</p>
-        </div> */}
+    <section
+      ref={calculateRef}
+      className="w-full py-5 px-4 text-powder-white flex flex-col md:items-between"
+    >
+      <div className="w-full">
+        <small className="block text-dover-grey uppercase pb-3">
+          Calculate
+        </small>
+        <h2 className="text-5xl">Estimate your carbon footprint</h2>
+      </div>
+      <div className="w-full flex flex-col space-y-6 py-4 justify-between md:flex-row">
+        <URLSearch setUrl={setUrl} />
+        {defaultInfo ? (
+          <>
+            {skeletonCardInfo.map((card, i) => (
+              <Card {...card} key={i} />
+            ))}
+          </>
+        ) : (
+          renderData()
+        )}
+      </div>
     </section>
   );
-
-  // if (loadingData === undefined) {
-  //     <div>Undefined</div>
-  // }
-  // if (loadingData) {
-  //     <div>loading</div>
-  // }
-
-  // return (
-  //         <section className="w-full py-20 text-powder-white">
-  //             <small className="text-dover-grey">Calculate</small>
-  //             <h4 className="text-3xl">Estimate your carbon footprint</h4>
-  //             <URLSearch setUrl={setUrl} />
-  //             <div className="pt-10">
-  //             {cardInfo.map((card, i) => (
-  //                 <Card icon={card.icon} description={card.description} stat={card.stat} key={i} />
-  //             ))}
-  //             </div>
-  //             <RadialProgresBar/>
-  //             <p className="text-center -mt-4 text-lg">Cleaner than sites tested</p>
-  //         </section>
-  //     )
 };
 
 export default Calculate;

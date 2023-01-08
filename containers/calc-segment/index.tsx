@@ -10,14 +10,8 @@ import { MdOutlineCenterFocusStrong } from 'react-icons/md';
 
 const CalcSegment = () => {
   return (
-    <div className="border-2 border-dover-grey text-powder-white rounded-xl py-4 px-1 flex flex-col items-center justify-center mx-2 md:shrink md:w-4/12">
-      <div className="flex items-center md:self-start md:px-4">
-        <small className="rounded-md bg-gradient-to-r from-off-black to-storm-dust text-sandpiper px-3 py-2">
-          <i className="inline-block text-xl pr-2 align-bottom">
-            <IoFootsteps />
-          </i>
-          Carbon footprints
-        </small>
+    <section className="border-2 border-dover-grey text-powder-white rounded-xl py-4 px-1 flex flex-col items-center justify-center mx-2 md:shrink md:w-4/12">
+      <div className="self-start px-4">
         <small className="rounded-md  bg-gradient-to-r from-off-black to-renaissance text-kittens-eye px-3 py-2">
           <i className="inline-block text-xl pr-2 align-bottom">
             <IoCalculator />
@@ -56,11 +50,12 @@ const CalcSegment = () => {
       <div className="self-start px-4 space-y-3">
         <h4 className="text-powder-white text-2xl">System Segments</h4>
         <p className="block">
-          The system segments and percentages used in the calculations are based
-          on Anders Andrae’s study
+          Calculating digital emissions is difficult due to network boundaries.
+          We have defined broad system boundaries for a comprehensive carbon
+          footprint and segmented impact for more insight.
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 

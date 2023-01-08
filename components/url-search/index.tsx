@@ -14,22 +14,24 @@ const URLSearch = ({ setUrl }: Props) => {
     }
     setUrl(transformedUrl);
   };
+
   return (
-    <div className="flex items-center justify-between pr-3 py-3">
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <input
-          required
-          placeholder="Enter your URL"
-          className="bg-squant py-2 px-5 rounded-full"
-        />
-        <button
-          type="submit"
-          className="rounded-full text-2xl p-1 px-3 text-powder-white  bg-squant"
-        >
-          +
-        </button>
-      </form>
-    </div>
+    <form
+      className="flex items-center justify-between pr-3 py-3 w-full md:pr-20"
+      onSubmit={(e) => handleSubmit(e)}
+    >
+      <input
+        required
+        placeholder="Enter your URL"
+        className="bg-squant py-3 px-5 rounded-full w-full mr-4"
+      />
+      <button
+        type="submit"
+        className="rounded-full text-2xl p-1 px-3 text-powder-white  bg-squant"
+      >
+        +
+      </button>
+    </form>
   );
 };
 

@@ -6,3 +6,5 @@ type Data = {
     annualEnergy: {result: number, units: string};
     cupsOfCoffee: {result: string}
 }
+
+type Ref = HTMLButtonElement | null;

@@ -3,7 +3,7 @@ import React from 'react';
 
 const Emissions = () => {
   return (
-    <div className="border-2 border-dover-grey text-powder-white rounded-xl py-4 px-3 flex mx-2 md:shrink md:w-5/12 md:pt-4">
+    <div className="border-2 border-dover-grey text-powder-white rounded-xl py-4 px-3 flex mx-2 md:w-5/12 md:pt-4">
       <div className="w-full flex flex-col items-start justify-between">
         <div className="flex items-center justify-between text-xl">
           <p>The Internet is responsible for 3% of global carbon emissions.</p>
