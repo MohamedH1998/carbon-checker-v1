@@ -19,7 +19,7 @@ const Section = React.forwardRef<Ref, Props>(
         <small className="block text-dover-grey uppercase my-2">
           {subtitle}
         </small>
-        <h4 className="text-2xl">{title}</h4>
+        <h4 className="text-2xl font-medium">{title}</h4>
       </div>
       {children}
     </section>
