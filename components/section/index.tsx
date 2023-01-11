@@ -1,4 +1,4 @@
-import React, { ReactNode, Ref } from 'react';
+import React, { ReactNode } from 'react';
 
 interface Props {
   title: string;

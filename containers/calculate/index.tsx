@@ -9,7 +9,7 @@ import { getCalc } from '../../utils/helper';
 interface Props {
   calculateRef: MutableRefObject<HTMLDivElement | null>;
   data: Data | undefined;
-  setData: (data: Data) => void;
+  setData: (data: Data | undefined) => void;
 }
 
 const Calculate = ({ calculateRef, data, setData }: Props) => {
@@ -19,9 +19,10 @@ const Calculate = ({ calculateRef, data, setData }: Props) => {
 
   const fetchData = async () => {
     try {
+      data && setData(undefined);
       setLoadingData(true);
-      const { data } = await getCalc(url);
-      setData(data);
+      const { data: calcData } = await getCalc(url);
+      setData(calcData);
       setLoadingData(false);
       setUrl('');
     } catch (e) {
@@ -86,6 +87,8 @@ const Calculate = ({ calculateRef, data, setData }: Props) => {
   };
 
   const defaultInfo = !loadingData && !data;
+
+  console.log('data', data);
 
   const skeletonCardInfo = [
     {

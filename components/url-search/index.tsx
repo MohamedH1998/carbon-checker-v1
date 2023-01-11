@@ -3,15 +3,16 @@ import { validUrl } from '../../utils/helper';
 
 interface Props {
   setUrl: React.Dispatch<React.SetStateAction<string>>;
-  urlError: string;
+  urlError: boolean;
 }
 
 const URLSearch = ({ setUrl, urlError }: Props) => {
   const [error, setError] = useState<boolean>(false);
+  const [data, setData] = useState<string>('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const transformedUrl = validUrl(e.target[0].value)!;
+    const transformedUrl = validUrl(data)!;
     if (transformedUrl === undefined) {
       setError(true);
     } else {
@@ -23,11 +24,13 @@ const URLSearch = ({ setUrl, urlError }: Props) => {
   return (
     <div className="w-full md:mr-20">
       <form
+        onSubmit={handleSubmit}
         className="flex items-center justify-between w-full"
-        onSubmit={(e) => handleSubmit(e)}
       >
         <input
           required
+          value={data}
+          onChange={(e) => setData(e.target.value)}
           placeholder="Enter your URL"
           className="bg-squant py-3 px-5 rounded-full w-full mr-4"
         />
