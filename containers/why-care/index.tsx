@@ -6,7 +6,7 @@ const WhyCare = () => {
     <Section
       title="Why measure your site’s carbon footprint?"
       subtitle="Why care?"
-      className="md:border-2 md:border-dover-grey rounded-xl md:w-7/12"
+      className="border-2 border-iron rounded-xl md:w-7/12"
     >
       <p className="py-4">
         The carbon emissions of a website can have a significant impact on the

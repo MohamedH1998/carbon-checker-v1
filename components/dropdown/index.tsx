@@ -14,14 +14,12 @@ export default function Dropdown({ iconColor, title, icon, text }: Props) {
     <Disclosure>
       {({ open }) => (
         <>
-          <Disclosure.Button className="flex w-full justify-between rounded-lg py-2 text-left text-sm font-medium">
+          <Disclosure.Button className="flex w-full justify-between rounded-lg text-left text-sm font-medium">
             <div className="w-full flex items-center justify-start space-x-4">
-              <i
-                className={`sm:text-4xl text-2xl p-4 sm:mt-5 rounded-xl sm:self-start ${iconColor}`}
-              >
+              <i className={`sm:text-4xl text-lg p-3 rounded-xl ${iconColor}`}>
                 {icon}
               </i>
-              <h3 className="font-semibold text-lg sm:text-xl">{title}</h3>
+              <h6 className="font-medium text-lg">{title}</h6>
             </div>
             <BsChevronUp
               className={`${
@@ -29,8 +27,8 @@ export default function Dropdown({ iconColor, title, icon, text }: Props) {
               } text-xl font-bold text-powder-white self-center`}
             />
           </Disclosure.Button>
-          <Disclosure.Panel className="px-4 text-sm text-gray-400">
-            <p className="text-heather-field text-base sm:text-lg sm:w-1/2">
+          <Disclosure.Panel className="px-4 py-4 text-sm text-gray-400">
+            <p className="text-heather-field text-base sm:text-lg sm:w-1/2 md:w-full">
               {text}
             </p>
           </Disclosure.Panel>

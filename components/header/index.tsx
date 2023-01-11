@@ -31,7 +31,7 @@ const Header = ({ calculateRef }: Props) => {
   };
 
   return (
-    <div className="relative bg-powder-white rounded-xl px-7 pt-2 pb-14 space-y-8 z-[999] md:py-4 md:space-y-10 md:px-20">
+    <div className="relative bg-powder-white rounded-xl px-7 pt-2 pb-20 space-y-8 z-[999] py-20 md:space-y-10 md:px-20">
       <canvas
         id="gradient-canvas"
         className="absolute top-0 left-0 rounded-xl z-[-99]"
@@ -43,7 +43,7 @@ const Header = ({ calculateRef }: Props) => {
         </i>
         <Button onClick={() => executeScroll(calculateRef)}>Try now</Button>
       </div>
-      <h1 className="text-3xl uppercase text-big-stone z-1 md:text-7xl md:px-20 md:pb-10 md:w-9/12">
+      <h1 className="text-4xl px-0 xs:text-5xl uppercase text-big-stone z-1 md:text-7xl xs:px-10 md:px-20 md:pb-10 w-8/12">
         Estimate your website's carbon footprint
       </h1>
     </div>

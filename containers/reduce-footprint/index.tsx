@@ -29,10 +29,10 @@ const ReduceFootprint = () => {
   return (
     <Section
       subtitle="Act now"
-      title="Reduce your carbon footprint"
-      className="md:border-2 md:border-dover-grey rounded-xl md:w-8/12"
+      title="What steps can you take?"
+      className="border-2 border-iron rounded-xl md:w-8/12"
     >
-      <div className="flex flex-col space-y-6 md:space-y-0 py-5 items-start justify-between">
+      <div className="flex flex-col my-8 items-start justify-between py-4 space-y-3 h-full">
         {actionArr.map((action, i) => (
           <Dropdown {...action} key={i} />
         ))}

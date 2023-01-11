@@ -6,37 +6,31 @@ import { MdOutlineCenterFocusStrong } from 'react-icons/md';
 
 const Limitations = () => {
   return (
-    <section className="border-2 border-dover-grey text-powder-white rounded-xl py-10 px-1 flex flex-col items-center justify-start md:w-7/12">
+    <section className="border-2 border-iron  text-powder-white rounded-xl mt-10 md:mt-0 py-10 px-1 flex flex-col items-center justify-start md:w-7/12">
       <div className="self-start px-4">
-        <small className="rounded-md  bg-gradient-to-r from-off-black to-renaissance text-kittens-eye px-3 py-2">
-          <i className="inline-block text-xl pr-2 align-bottom">
+        <small className="rounded-md text-lg bg-gradient-to-r from-off-black to-renaissance text-kittens-eye px-3 py-2">
+          <i className="inline-block text-2xl pr-2 align-sub">
             <AiFillQuestionCircle />
           </i>
           Limitations
         </small>
       </div>
-      <div className="self-start px-10 py-8">
+      <div className="self-start px-10 pt-16">
         <ul className="list-decimal space-y-2 pl-4">
           <li>
             The potential margin of error widens the broader your system
-            boundaries get
+            boundaries get.
           </li>
           <li>
             We only test the homepage, to test all the pages in your website we
-            would have to add a script to your site
+            would have to add a script.
           </li>
-          <li>We assume that all users are new visitors to your page</li>
-          <li>Hardware production</li>
+          <li>
+            In our calculations, we assume that all users are new visitors to
+            your page.
+          </li>
         </ul>
       </div>
-      {/* <div className="self-start px-4 space-y-3">
-        <h4 className="text-powder-white text-2xl">System Segments</h4>
-        <p className="block">
-          Calculating digital emissions is difficult due to network boundaries.
-          We have defined broad system boundaries for a comprehensive carbon
-          footprint and segmented impact for more insight.
-        </p>
-      </div> */}
     </section>
   );
 };

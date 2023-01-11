@@ -11,26 +11,29 @@ module.exports = {
       colors: {
         'off-black': '#303030',
         'dover-grey': '#848484',
+        iron: '#5E5E5E',
         'abundance-of-tinge': '#E6E6E6',
         'powder-white': '#EAF1F7',
-        'sandpiper': '#EBD8C8',
+        sandpiper: '#EBD8C8',
         'private-black': '#4D4A47',
         'kittens-eye': '#8CADFF',
-        'aeronautic': '#2B3347',
-        'squant': '#666666',
+        aeronautic: '#2B3347',
+        squant: '#666666',
         'big-stone': '#354045',
         'storm-dust': '#67625F',
-        'renaissance': '#454356',
-        'vegan-mastermind': '#2DC653'
-
+        renaissance: '#454356',
+        'vegan-mastermind': '#2DC653',
       },
       fontFamily: {
-        'primary': 'Inter'
+        primary: 'Inter',
       },
       screens: {
-        md: '984px'
-      }
+        xs: '430px',
+        md: '984px',
+        desktop: '1477px',
+        tablet: '1338px',
+      },
     },
   },
   plugins: [],
-}
+};

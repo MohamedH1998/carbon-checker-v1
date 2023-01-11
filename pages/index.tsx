@@ -1,32 +1,37 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+import Footer from '../components/footer';
 import Header from '../components/header';
 import AverageSite from '../containers/average-site';
 import CalcSegment from '../containers/calc-segment';
 import Calculate from '../containers/calculate';
 import Emissions from '../containers/emissions';
+import Improvements from '../containers/improvements';
 import Limitations from '../containers/limitations';
 import ReduceFootprint from '../containers/reduce-footprint';
 import WhyCare from '../containers/why-care';
 
 const Home = () => {
   const calculateRef = useRef<null | HTMLDivElement>(null);
+  const [data, setData] = useState<Data | undefined>(undefined);
 
   return (
     <div className="flex w-full bg-off-black px-4 py-4 font-primary justify-center">
-      <div className="max-w-[580px] md:max-w-none">
+      {/* <div className="max-w-[580px] md:max-w-none"> */}
+      <main>
         <Header calculateRef={calculateRef} />
-        <div className="space-y-2 pt-4 md:space-y-0 md:flex md:py-6">
-          <Emissions />
-          <AverageSite />
-          <CalcSegment />
+
+        <div className="flex justify-center">
+          {/* <div className="md:flex md:justify-center space-y-2 md:space-y-0 py-6 md:space-x-6 desktop:px-48"> */}
+          <div className="md:flex md:justify-center space-y-2 md:space-y-0 py-10 md:space-x-6 md:px-20">
+            <AverageSite />
+            <CalcSegment />
+            <Emissions />
+          </div>
         </div>
-        <Calculate calculateRef={calculateRef} />
-        <div className="pt-4 flex flex-col justify-center md:flex-row md:space-x-3">
-          <ReduceFootprint />
-          <WhyCare />
-          <Limitations />
-        </div>
-      </div>
+        <Calculate data={data} setData={setData} calculateRef={calculateRef} />
+        <Improvements />
+        <Footer />
+      </main>
     </div>
   );
 };

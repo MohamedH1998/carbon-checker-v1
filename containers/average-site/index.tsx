@@ -1,32 +1,51 @@
 import Image from 'next/image';
 import React from 'react';
+import { CgCoffee } from 'react-icons/cg';
+import { IoMdRocket } from 'react-icons/io';
+import Card from '../../components/card';
 
 const AverageSite = () => {
+  const averageInfo = [
+    {
+      stat: '60kg CO2',
+      description: 'Every year, the average website emits',
+      icon: (
+        <i className="rounded-md p-3 text-sandpiper bg-iron text-3xl md:text-4xl md:p-4 ">
+          <IoMdRocket />
+        </i>
+      ),
+    },
+    {
+      stat: '2,857 cups of coffee ',
+      description: 'Equivalent to',
+      icon: (
+        <i className="rounded-md p-3 text-kittens-eye bg-aeronautic text-3xl md:text-4xl md:p-4">
+          <CgCoffee />
+        </i>
+      ),
+    },
+  ];
   return (
-    <div className="border-2 border-dover-grey text-powder-white rounded-xl py-4 px-3 flex flex-col items-center justify-center mx-2 md:w-8/12">
-      <h4 className="text-xl">Average website</h4>
-      <Image
-        className="w-9/12 py-10"
-        src="/line.svg"
-        width="200"
-        height="200"
-        alt="Rocket"
-      />
-      <div className="flex items-center justify-center space-x-2">
-        <div className="flex flex-col justify-between border-2 border-dover-grey rounded-xl bg-gradient-to-r from-off-black to-storm-dust text-sandpiper space-y-3 py-2 px-4">
-          <div>
-            <small className="block text-xl">60</small>
-            <small className="block text-xs">kg</small>
-          </div>
-          <small className="block text-xs">CO2 produced every year</small>
-        </div>
-        <div className="flex flex-col self-stretch justify-between border-2 border-dover-grey rounded-xl  bg-gradient-to-r from-off-black to-renaissance text-kittens-eye space-y-3 py-2 px-4">
-          <div>
-            <small className="block text-xl">2,857</small>
-          </div>
-          <small className="block text-xs">Equivalence in cups of coffee</small>
-        </div>
+    // <div className="border-2 border-iron text-powder-white rounded-xl py-6 px-6 mx-2 md:w-4/12 tablet:min-w-[400px]">
+    <div className="border-2 border-iron text-powder-white rounded-xl py-6 px-6 md:w-4/12">
+      <h5 className="text-2xl md:text-3xl">Average Website</h5>
+      <small className="font-light text-sm md:text-base pt-2 block">
+        With 10,000 visitors a month
+      </small>
+      <div className=" flex flex-col items-center justify-center py-4">
+        {averageInfo.map((card, i) => (
+          <Card
+            icon={card.icon}
+            description={card.description}
+            stat={card.stat}
+            key={i}
+            loadingData={false}
+          />
+        ))}
       </div>
+      <small className="text-xs md:text-base text-dover-grey">
+        As per Website Carbon Calculator
+      </small>
     </div>
   );
 };
