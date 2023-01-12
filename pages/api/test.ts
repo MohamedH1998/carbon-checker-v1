@@ -7,7 +7,7 @@ import { calculateAnnualEmissions, calculateAnnualEnergy, calculateEmissionsPerV
   ) {
     try {
       const parsedUrl = req.body
-      const url = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${parsedUrl}`;
+      const url = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${parsedUrl}&key=${process.env.GOOGLE_API_KEY}`;
       const resp = await fetch(url);
       const data = await resp.json()
       const pageSize = data.lighthouseResult.audits['total-byte-weight'].numericValue

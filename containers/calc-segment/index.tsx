@@ -20,7 +20,7 @@ const CalcSegment = () => {
         </small>
       </div>
       <div className="">
-        <ul className="md:grid md:grid-rows-2 md:grid-flow-col md:gap-4 md:items-baseline flex flex-col items-start justify-start space-y-4">
+        <ul className="md:grid md:grid-rows-2 md:grid-flow-col md:gap-2 md:items-baseline flex flex-col items-start justify-start space-y-4">
           <li className="text-dover-grey">
             <i className="inline-block text-xl pr-2 align-bottom">
               <VscDeviceMobile />
