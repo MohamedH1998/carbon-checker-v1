@@ -6,7 +6,6 @@ import { calculateAnnualEmissions, calculateAnnualEnergy, calculateEnergyConsump
     res: NextApiResponse
   ) {
     try {
-      console.log(process.env.GOOGLE_API_KEY)
       const parsedUrl = req.body
       const url = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${parsedUrl}&strategy=desktop&key=${process.env.GOOGLE_API_KEY}`;
       const resp = await fetch(url);

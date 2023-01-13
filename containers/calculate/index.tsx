@@ -88,8 +88,6 @@ const Calculate = ({ calculateRef, data, setData }: Props) => {
 
   const defaultInfo = !loadingData && !data;
 
-  console.log('data', data);
-
   const skeletonCardInfo = [
     {
       icon: (

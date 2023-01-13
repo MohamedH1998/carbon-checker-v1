@@ -16,12 +16,9 @@ const Home = () => {
 
   return (
     <div className="flex w-full bg-off-black px-4 py-4 font-primary justify-center">
-      {/* <div className="max-w-[580px] md:max-w-none"> */}
       <main>
         <Header calculateRef={calculateRef} />
-
         <div className="flex justify-center">
-          {/* <div className="md:flex md:justify-center space-y-2 md:space-y-0 py-6 md:space-x-6 desktop:px-48"> */}
           <div className="md:flex md:justify-center space-y-2 md:space-y-0 py-10 md:space-x-6 md:px-20">
             <AverageSite />
             <CalcSegment />
@@ -29,7 +26,7 @@ const Home = () => {
           </div>
         </div>
         <Calculate data={data} setData={setData} calculateRef={calculateRef} />
-        <Improvements />
+        {data && <Improvements />}
         <Footer />
       </main>
     </div>
