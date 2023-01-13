@@ -2,7 +2,6 @@ import React, { MutableRefObject, useEffect, useState } from 'react';
 import { CgCoffee } from 'react-icons/cg';
 import { IoMdRocket } from 'react-icons/io';
 import Card from '../../components/card';
-import Loader from '../../components/loader';
 import URLSearch from '../../components/url-search';
 import { getCalc } from '../../utils/helper';
 
@@ -21,7 +20,7 @@ const Calculate = ({ calculateRef, data, setData }: Props) => {
     try {
       data && setData(undefined);
       setLoadingData(true);
-      const calcData = await getCalc(url);
+      const { data: calcData } = await getCalc(url);
       if (!calcData) {
         throw new Error('No data');
       }
