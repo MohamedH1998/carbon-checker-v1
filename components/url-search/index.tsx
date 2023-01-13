@@ -12,7 +12,7 @@ const URLSearch = ({ setUrl, urlError }: Props) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const transformedUrl = validUrl(data)!;
+    const transformedUrl = validUrl(data);
     if (transformedUrl === undefined) {
       setError(true);
     } else {
@@ -43,7 +43,9 @@ const URLSearch = ({ setUrl, urlError }: Props) => {
       </form>
       {error ||
         (urlError && (
-          <p className="ml-2 py-2 text-red-500">Please enter a valid url</p>
+          <p className="ml-2 py-2 text-red-500">
+            Something went wrong, try again with a valid url
+          </p>
         ))}
     </div>
   );

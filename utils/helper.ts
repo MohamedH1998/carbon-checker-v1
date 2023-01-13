@@ -7,7 +7,7 @@ export async function getCalc(url: string) {
     },
     body: JSON.stringify(url)
     });
-    if (resp.status === 404) {
+    if (!resp.ok) {
       throw new Error('No data')
     }
     const data = await resp.json();

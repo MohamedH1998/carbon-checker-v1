@@ -21,7 +21,10 @@ const Calculate = ({ calculateRef, data, setData }: Props) => {
     try {
       data && setData(undefined);
       setLoadingData(true);
-      const { data: calcData } = await getCalc(url);
+      const calcData = await getCalc(url);
+      if (!calcData) {
+        throw new Error('No data');
+      }
       setData(calcData);
       setLoadingData(false);
       setUrl('');
@@ -41,13 +44,6 @@ const Calculate = ({ calculateRef, data, setData }: Props) => {
   }, [url]);
 
   const renderData = () => {
-    // if (loadingData) {
-    //   return (
-    //     <div className="w-full my-10 flex flex-col items-center justify-center">
-    //       <Loader loading={loadingData} />
-    //     </div>
-    //   );
-    // }
     if (!data) {
       return;
     }
@@ -88,7 +84,7 @@ const Calculate = ({ calculateRef, data, setData }: Props) => {
 
   const defaultInfo = !loadingData && !data;
 
-  const skeletonCardInfo = [
+  const defaultCardInfo = [
     {
       icon: (
         <i className="rounded-md p-4 text-sandpiper md:mr-2 bg-private-black text-4xl">
@@ -128,7 +124,7 @@ const Calculate = ({ calculateRef, data, setData }: Props) => {
         <URLSearch urlError={urlError} setUrl={setUrl} />
         {defaultInfo || loadingData ? (
           <>
-            {skeletonCardInfo.map((card, i) => (
+            {defaultCardInfo.map((card, i) => (
               <Card {...card} loadingData={loadingData} key={i} />
             ))}
           </>
