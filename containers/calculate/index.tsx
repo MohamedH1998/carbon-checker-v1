@@ -20,17 +20,16 @@ const Calculate = ({ calculateRef, data, setData }: Props) => {
     try {
       data && setData(undefined);
       setLoadingData(true);
-      const { data: calcData } = await getCalc(url);
+      const calcData = await getCalc(url);
       if (!calcData) {
         throw new Error('No data');
       }
-      setData(calcData);
+      setData(calcData.data);
       setLoadingData(false);
       setUrl('');
     } catch (e) {
-      setUrlError(true);
       setLoadingData(false);
-      setUrl('');
+      setUrlError(true);
     }
   };
 
@@ -120,7 +119,11 @@ const Calculate = ({ calculateRef, data, setData }: Props) => {
         </h2>
       </div>
       <div className="w-full flex flex-col space-y-6 md:space-y-0 py-4 items-center justify-between md:flex-row">
-        <URLSearch urlError={urlError} setUrl={setUrl} />
+        <URLSearch
+          loadingData={loadingData}
+          urlError={urlError}
+          setUrl={setUrl}
+        />
         {defaultInfo || loadingData ? (
           <>
             {defaultCardInfo.map((card, i) => (

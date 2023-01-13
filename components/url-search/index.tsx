@@ -4,9 +4,10 @@ import { validUrl } from '../../utils/helper';
 interface Props {
   setUrl: React.Dispatch<React.SetStateAction<string>>;
   urlError: boolean;
+  loadingData: boolean;
 }
 
-const URLSearch = ({ setUrl, urlError }: Props) => {
+const URLSearch = ({ setUrl, urlError, loadingData }: Props) => {
   const [error, setError] = useState<boolean>(false);
   const [data, setData] = useState<string>('');
 
@@ -35,6 +36,7 @@ const URLSearch = ({ setUrl, urlError }: Props) => {
           className="bg-squant py-3 px-5 rounded-full w-full mr-4"
         />
         <button
+          disabled={loadingData}
           type="submit"
           className="rounded-full text-2xl p-1 px-3 text-powder-white  bg-squant"
         >
