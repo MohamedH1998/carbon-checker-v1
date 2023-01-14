@@ -9,7 +9,7 @@ const Emissions = () => {
       </h5>
       <p className="text-lg">
         The Internet devours a staggering 307 gigawatts of electricity every
-        year. Responsbile for 3% of global carbon emissions, the emissions
+        year. Responsible for 3.7% of global carbon emissions, the emissions
         caused by the Internet are comparable those of the aviation industry.
       </p>
       <small>International Energy Agency, 2019</small>
