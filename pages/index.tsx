@@ -6,9 +6,6 @@ import CalcSegment from '../containers/calc-segment';
 import Calculate from '../containers/calculate';
 import Emissions from '../containers/emissions';
 import Improvements from '../containers/improvements';
-import Limitations from '../containers/limitations';
-import ReduceFootprint from '../containers/reduce-footprint';
-import WhyCare from '../containers/why-care';
 
 const Home = () => {
   const calculateRef = useRef<null | HTMLDivElement>(null);

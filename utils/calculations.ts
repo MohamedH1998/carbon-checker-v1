@@ -24,7 +24,7 @@ export function calculateAnnualEnergy(energy: number) {
     const result = energy * 10000 * 12
     const transformedResult = roundToOneDecimal(result)
     return {
-        result,
+        result: transformedResult,
         units: 'kWh'
     }
 }

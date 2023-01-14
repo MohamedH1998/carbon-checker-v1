@@ -111,11 +111,11 @@ const Calculate = ({ calculateRef, data, setData }: Props) => {
       className="w-full py-20 px-4 text-powder-white flex flex-col md:items-between md:py-24 md:px-20"
     >
       <div className="w-full">
-        <small className="block text-dover-grey uppercase pb-3">
-          Calculate
-        </small>
         <h2 className="text-3xl md:text-6xl md:py-6">
           Estimate your carbon footprint
+          <small className="block text-dover-grey text-sm pt-3">
+            *per 10,000 page views
+          </small>
         </h2>
       </div>
       <div className="w-full flex flex-col space-y-6 md:space-y-0 py-4 items-center justify-between md:flex-row">

@@ -30,7 +30,7 @@ const AverageSite = () => {
     <div className="border-2 border-iron text-powder-white rounded-xl py-6 px-6 md:w-4/12">
       <h5 className="text-2xl md:text-3xl">Average Website</h5>
       <small className="font-light text-sm md:text-base pt-2 block">
-        With 10,000 visitors a month
+        With 10,000 views a month
       </small>
       <div className=" flex flex-col items-center justify-center py-4">
         {averageInfo.map((card, i) => (
