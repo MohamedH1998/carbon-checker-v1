@@ -6,15 +6,15 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <NextSeo
-        title="Calculate your website's carbon emissions | Carbon Checker"
-        description="Calculate and reduce your website's carbon footprint with our easy-to-use carbon emissions calculator."
+        title="Estimate your website's carbon emissions | Carbon Checker"
+        description="Estimate and reduce your website's carbon footprint with our easy-to-use carbon emissions calculator."
         canonical="https://carbon-checker.netlify.app/"
         openGraph={{
           url: 'https://carbon-checker-23.s3.amazonaws.com/carbon-checker.png',
           title: 'Carbon Checker',
           locale: 'en_GB',
           description:
-            "Calculate and reduce your website's carbon footprint with our easy-to-use carbon emissions calculator.",
+            "Estimate and reduce your website's carbon footprint with our easy-to-use carbon emissions calculator.",
           images: [
             {
               url: 'https://carbon-checker-23.s3.amazonaws.com/carbon-checker.png',
