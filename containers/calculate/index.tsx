@@ -114,7 +114,7 @@ const Calculate = ({ calculateRef, data, setData }: Props) => {
         <h2 className="text-3xl md:text-6xl md:py-6">
           Estimate your carbon footprint
           <small className="block text-dover-grey text-sm pt-3">
-            *per 10,000 page views
+            *per 10,000 page views a month
           </small>
         </h2>
       </div>
